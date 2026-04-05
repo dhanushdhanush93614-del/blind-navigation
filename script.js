@@ -137,7 +137,9 @@ async function openCamera() {
   try {
     let video = document.getElementById("camera");
 
-    cameraStream = await navigator.mediaDevices.getUserMedia({ video: true });
+    cameraStream = await navigator.mediaDevices.getUserMedia({
+      video: { facingMode: { ideal: "environment" } }
+    });
 
     video.srcObject = cameraStream;
     video.style.display = "block";
